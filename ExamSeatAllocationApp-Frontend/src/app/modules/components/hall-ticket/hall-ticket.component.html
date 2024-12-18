@@ -1,0 +1,112 @@
+<div class="container">
+    <div class="hall-ticket position-relative">
+        <!-- University Watermark -->
+        <div class="watermark">DYPATU</div>
+
+        <div class="ticket-header">
+            <img src="assets/img/dyplogo.jpg" alt="DY Patil University Logo">
+            <h2>Examination Hall Ticket</h2>
+            <h4>Academic Year 2023-2024</h4>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <div class="row mb-3">
+                    <div class="col-4 label">Student Name:</div>
+                    <div class="col-8">{{ studentData?.firstName }} {{ studentData?.lastName }}</div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-4 label">PRN Number:</div>
+                    <div class="col-8">{{ studentData?.prnNumber }}</div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-4 label">Roll Number:</div>
+                    <div class="col-8">{{ studentData?.rollNumber }}</div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-4 label">Program:</div>
+                    <div class="col-8">{{ studentData?.courseName }}</div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-4 label">Semester:</div>
+                    <div class="col-8">{{ studentData?.semester }}</div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-4 label">Block Number:</div>
+                    <div class="col-8">{{ studentData?.blockNumber }}</div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-4 label">Seat Number:</div>
+                    <div class="col-8">{{ studentData?.seatNumber }}</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-6 text-center">
+                <strong>Controller of Examinations</strong>
+                <br>
+            </div>
+            <div class="col-6 text-center">
+                <strong>Principal's Signature</strong>
+                <br>
+            </div>
+        </div>
+
+        <div class="text-center mt-3 text-muted">
+            <small>
+                Note: No student will be allowed to enter the examination hall without this hall ticket
+            </small>
+        </div>
+
+        <div class="text-center mt-3">
+            <button class="btn btn-primary" (click)="downloadPDF()">
+                Download Hall Ticket PDF
+            </button>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12 col-12">
+      <div class="card p-3 shadow-xl radius">
+        <div class="row">
+          
+          <div class="col-1">
+            <div class="align-item-between justify-content-between" style="margin-top: 90px;">
+              <h2 class="text-center">L</h2>
+            </div>
+          </div>
+  
+  
+          <div class="col-10 p-0 ">
+            <div class="card-header pl-2 pt-2 p-0 m-0 shadow-sm p-2 bg-color mb-2 d-flex justify-content-between" >
+              <span>BLOCK NO: {{ block.blockNumber }}</span>
+            </div>
+            <div class="col-4 px-3" *ngIf="(block.capacity - (block.capacity -1 )) == 1">
+              <img src="assets/img/arrow-right-solid.svg" alt="loading"/>
+            </div>
+            <div class="seat-grid">
+                <div class="seat available" *ngFor="let i of [].constructor(block.capacity)">
+                    <a>
+                    ALL          
+                  </a>
+                </div> 
+            </div>
+          </div>
+  
+          <div class="col-1">
+            <div class="align-item-between justify-content-between" style="margin-top: 90px;">
+              <h2 class="text-center">R</h2>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
